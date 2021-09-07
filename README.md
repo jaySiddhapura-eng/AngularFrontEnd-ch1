@@ -1,27 +1,69 @@
-# MeanCourse
+# Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+## Application background
 
-## Development server
+An application where user can create the post, can read the post of others, edit their posts and so on
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Project structure
 
-## Code scaffolding
+~~~powershell
+App
+ |
+ +---Header
+ |	   |
+ |	   +----header.component.ts
+ |	   +----header.component.html
+ +---Posts
+ |	   |
+ |	   +----post-create
+ |	   |	    |
+ |	   |	    +---post-create.component.ts
+ |	   |	    +---post-create.component.html
+ |	   |	    +---post-create.component.css
+ |	   +----post-list
+ |	   |		|
+ |	   |		+---post-list.component.ts
+ |	   |		+---post-list.component.html
+ |	   |		+---post-list.component.css
+ |	   +----post-model.ts
+ |	   +----post-service.ts
+ +---app.component.html
+ +---app.component.ts
+ +---app.component.css 
+~~~
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Posts : Post Create Component
 
-## Build
+1. An Angular template driven form implementation.
+2.  which takes **POST TITLE** and **POST DESCRIPTION** from the user.
+3. Upon clicking the SUBMIT BUTTON, **addPost** method of service executed
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Posts : Post List Component
 
-## Running unit tests
+1. Renders the list of post submitted by the post create component
+2. Can expand or collapse by user
+3. Collapse : only post title is visible
+4. Expand : post title and description is visible
+5. The posts arrives to this component from the service
+6. List get updated in this component using the subscription
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Posts : Post Model
 
-## Running end-to-end tests
+1. Exports the Post model as an interface
+2. Post model consist of title and content
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Posts : Post Service
 
-## Further help
+1. **getPosts()** : Returns the array of posts
+2. **addPosts()** : Take the post data as parameter and push it into posts array
+3. **getPostUpdateListener()** : return the observable about update in posts array
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![appFace](assets/appFace.JPG)
+
+
+
+
+
+
+
+
